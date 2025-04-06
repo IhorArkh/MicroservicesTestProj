@@ -45,6 +45,24 @@
 					"response": []
 				},
 				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{catalog_url}}/products/01960bfd-edda-4ec6-bf69-b4a4b1120cf2",
+							"host": [
+								"{{catalog_url}}"
+							],
+							"path": [
+								"products",
+								"01960bfd-edda-4ec6-bf69-b4a4b1120cf2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get Products By Category",
 					"request": {
 						"method": "GET",
