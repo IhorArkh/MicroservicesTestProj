@@ -15,12 +15,22 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{catalog_url}}/products",
+							"raw": "{{catalog_url}}/products?pageNumber=2&pageSize=2",
 							"host": [
 								"{{catalog_url}}"
 							],
 							"path": [
 								"products"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "2"
+								},
+								{
+									"key": "pageSize",
+									"value": "2"
+								}
 							]
 						}
 					},
@@ -50,13 +60,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{catalog_url}}/products/01960bfd-edda-4ec6-bf69-b4a4b1120cf2",
+							"raw": "{{catalog_url}}/products/0196085f-9ece-43e4-b416-548b1c069e3f",
 							"host": [
 								"{{catalog_url}}"
 							],
 							"path": [
 								"products",
-								"01960bfd-edda-4ec6-bf69-b4a4b1120cf2"
+								"0196085f-9ece-43e4-b416-548b1c069e3f"
 							]
 						}
 					},
@@ -91,7 +101,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Name\": \"Wireless Headphones\",\r\n  \"Category\": [\"Electronics\", \"Audio\"],\r\n  \"Description\": \"High-quality wireless headphones with noise cancellation.\",\r\n  \"ImageFile\": \"headphones.jpg\",\r\n  \"Price\": 129.99\r\n}",
+							"raw": "{\r\n  \"Name\": \"Wireless Headphones2\",\r\n  \"Category\": [\"Electronics\", \"Audio\"],\r\n  \"Description\": \"High-quality wireless headphones with noise cancellation.\",\r\n  \"ImageFile\": \"headphones.jpg\",\r\n  \"Price\": 129.99\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -116,11 +126,11 @@
 						"auth": {
 							"type": "noauth"
 						},
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Name\": \"Wireless Headphones\",\r\n  \"Category\": [\"Electronics\", \"Audio\"],\r\n  \"Description\": \"High-quality wireless headphones with noise cancellation.\",\r\n  \"ImageFile\": \"headphones.jpg\",\r\n  \"Price\": 129.99\r\n}",
+							"raw": "{\r\n  \"id\": \"0196085f-9ece-43e4-b416-548b1c069e3f\",\r\n            \"name\": \"Wireless Headphones\",\r\n            \"category\": [\r\n                \"Electronics\",\r\n                \"Audio\"\r\n            ],\r\n            \"description\": \"High-quality wireless headphones with noise cancellation. UPDATED\",\r\n            \"imageFile\": \"headphones.jpg\",\r\n            \"price\": 129.99\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
