@@ -4,12 +4,12 @@ public record GetBasketQuery(string UserName) : IQuery<GetBasketResult>;
 
 public record GetBasketResult(ShoppingCart ShoppingCart);
 
-public class GetBasketQueryHandler : IQueryHandler<GetBasketQuery, GetBasketResult>
+public class GetBasketQueryHandler(IBasketRepository basketRepository) : IQueryHandler<GetBasketQuery, GetBasketResult>
 {
     public async Task<GetBasketResult> Handle(GetBasketQuery request, CancellationToken cancellationToken)
     {
-        // TODO: Get basket from database.
+        var basket = await basketRepository.GetBasket(request.UserName, cancellationToken);
 
-        return new GetBasketResult(new ShoppingCart("temp"));
+        return new GetBasketResult(basket);
     }
 }
