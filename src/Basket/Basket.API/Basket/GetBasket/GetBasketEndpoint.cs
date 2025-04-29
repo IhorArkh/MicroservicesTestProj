@@ -1,7 +1,5 @@
 ﻿namespace Basket.API.Basket.GetBasket;
 
-public record GetBasketRequest(string UserName);
-
 public record GetBasketResponse(ShoppingCart ShoppingCart);
 
 public class GetBasketEndpoint : ICarterModule
@@ -16,10 +14,10 @@ public class GetBasketEndpoint : ICarterModule
 
                 return Results.Ok(response);
             })
-            .WithName("GetProductById")
+            .WithName("GetProducts")
             .Produces<GetBasketResponse>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
-            .WithSummary("Get Product By Id")
-            .WithDescription("Get Product By Id");
+            .WithSummary("Get Products")
+            .WithDescription("Get Products");
     }
 }
