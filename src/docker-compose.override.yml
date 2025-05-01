@@ -23,7 +23,14 @@
     volumes:
       - postgres_catalog:/var/lib/postgresql/data/
 
+  distributedcache:
+    container_name: distributedcache
+    restart: always
+    ports:
+      - "6379:6379"
+
   catalog.api:
+    container_name: catalog-api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
