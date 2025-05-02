@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "203d0101-7566-4308-848c-2b1471f83c34",
+		"_postman_id": "68911d89-bbf0-4589-a336-5939676dc9a1",
 		"name": "EshopOnMicroservices",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "26689563"
@@ -144,6 +144,73 @@
 							],
 							"path": [
 								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Basket",
+			"item": [
+				{
+					"name": "Get Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basket_url}}/basket/test_user@example.com",
+							"host": [
+								"{{basket_url}}"
+							],
+							"path": [
+								"basket",
+								"test_user@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basket_url}}/basket/test_user@example.com",
+							"host": [
+								"{{basket_url}}"
+							],
+							"path": [
+								"basket",
+								"test_user@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ShoppingCart\": {\r\n        \"UserName\": \"test_user@example.com\",\r\n        \"Items\": [\r\n            {\r\n                \"Quantity\": 1,\r\n                \"Color\": \"Black\",\r\n                \"Price\": 79999.99,\r\n                \"ProductId\": \"6b2c8f9d-1e30-4a57-9b84-0c37d5e2f1a6\",\r\n                \"ProductName\": \"iPhone 15\"\r\n            },\r\n            {\r\n                \"Quantity\": 2,\r\n                \"Color\": \"White\",\r\n                \"Price\": 24999.50,\r\n                \"ProductId\": \"d4e7a5f1-9c38-47b2-8e06-2d91fa3c5bd0\",\r\n                \"ProductName\": \"AirPods Pro\"\r\n            },\r\n            {\r\n                \"Quantity\": 1,\r\n                \"Color\": \"Silver\",\r\n                \"Price\": 45000.00,\r\n                \"ProductId\": \"8a7f3b9e-5c21-4d6f-a482-1f8d90c56e3b\",\r\n                \"ProductName\": \"Apple Watch\"\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basket_url}}/basket",
+							"host": [
+								"{{basket_url}}"
+							],
+							"path": [
+								"basket"
 							]
 						}
 					},
