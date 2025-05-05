@@ -23,7 +23,7 @@ public class DiscountService(DiscountContext dbContext, ILogger<DiscountService>
     public override async Task<CouponModel> CreateDiscount(CreateDiscountRequest request, ServerCallContext context)
     {
         var coupon = request.Coupon.Adapt<Coupon>()
-                    ?? throw new RpcException(new Status(StatusCode.InvalidArgument, "Invalid request object."));
+                     ?? throw new RpcException(new Status(StatusCode.InvalidArgument, "Invalid request object."));
 
         dbContext.Coupons.Add(coupon);
         await dbContext.SaveChangesAsync();
@@ -35,14 +35,32 @@ public class DiscountService(DiscountContext dbContext, ILogger<DiscountService>
         return couponModel;
     }
 
-    public override Task<CouponModel> UpdateDiscount(UpdateDiscountRequest request, ServerCallContext context)
+    public override async Task<CouponModel> UpdateDiscount(UpdateDiscountRequest request, ServerCallContext context)
     {
-        return base.UpdateDiscount(request, context);
+        var coupon = request.Coupon.Adapt<Coupon>();
+
+        dbContext.Coupons.Update(coupon);
+        await dbContext.SaveChangesAsync();
+
+        logger.LogInformation(
+            "Discount updated for ProductName: {productName}, Amount: {amount}", coupon.ProductName, coupon.Amount);
+
+        var couponModel = coupon.Adapt<CouponModel>();
+        return couponModel;
     }
 
-    public override Task<DeleteDiscountResponse> DeleteDiscount(DeleteDiscountRequest request,
-        ServerCallContext context)
+    public override async Task<DeleteDiscountResponse> DeleteDiscount(
+        DeleteDiscountRequest request, ServerCallContext context)
     {
-        return base.DeleteDiscount(request, context);
+        var coupon = dbContext.Coupons.FirstOrDefault(x => x.ProductName == request.ProductName)
+                     ?? throw new RpcException(new Status(StatusCode.NotFound, "Coupon not found."));
+
+        dbContext.Coupons.Remove(coupon);
+        await dbContext.SaveChangesAsync();
+
+        logger.LogInformation(
+            "Discount updated for ProductName: {productName}", coupon.ProductName);
+
+        return new DeleteDiscountResponse { Success = true };
     }
 }
