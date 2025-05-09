@@ -3,7 +3,7 @@ using Ordering.Domain.Models;
 
 namespace Ordering.Infrastructure.Data;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : DbContext, IApplicationDbContext
 {
     // TODO: Try to replace it by simple properties with get and set.
     public DbSet<Customer> Customers => Set<Customer>();
