@@ -9,7 +9,8 @@ public static class DependencyInjection
     {
         var connectionString = config.GetConnectionString("Database");
 
-        // TODO: Add dbContext.
+        services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(connectionString));
+        // services.AddScoped<IApplicationDbContext, ApplicationDbContext>()
 
         return services;
     }
