@@ -9,7 +9,12 @@ public static class DependencyInjection
     {
         var connectionString = config.GetConnectionString("Database");
 
-        services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(connectionString));
+        services.AddDbContext<ApplicationDbContext>(opts =>
+        {
+            opts.AddInterceptors(new AuditableEntityInterceptor());
+            opts.UseSqlServer(connectionString);
+        });
+
         services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
 
         return services;
