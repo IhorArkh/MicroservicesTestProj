@@ -1,6 +1,6 @@
-﻿namespace Ordering.Application.Orders.Commands.CreateFolder;
+﻿namespace Ordering.Application.Orders.Commands.CreateOrder;
 
-public class CreateOrderCommandHandler(IApplicationDbContext dbContext)
+public class CreateOrderHandler(IApplicationDbContext dbContext)
     : ICommandHandler<CreateOrderCommand, CreateOrderResult>
 {
     public async Task<CreateOrderResult> Handle(CreateOrderCommand command, CancellationToken cancellationToken)

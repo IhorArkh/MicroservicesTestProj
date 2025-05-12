@@ -1,4 +1,4 @@
-﻿namespace Ordering.Application.Orders.Commands.CreateFolder;
+﻿namespace Ordering.Application.Orders.Commands.CreateOrder;
 
 public record CreateOrderCommand(OrderDto orderDto) : ICommand<CreateOrderResult>;
 
