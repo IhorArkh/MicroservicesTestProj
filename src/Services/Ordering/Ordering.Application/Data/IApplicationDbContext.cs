@@ -1,6 +1,4 @@
-﻿using Ordering.Domain.Models;
-
-namespace Ordering.Infrastructure.Data;
+﻿namespace Ordering.Application.Data;
 
 public interface IApplicationDbContext
 {
