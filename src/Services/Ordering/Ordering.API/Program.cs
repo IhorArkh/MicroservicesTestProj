@@ -11,7 +11,6 @@ builder.Services
     .AddInfrastructureServices(builder.Configuration)
     .AddApiServices();
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
