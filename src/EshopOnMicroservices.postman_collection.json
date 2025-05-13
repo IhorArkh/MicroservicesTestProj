@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "68911d89-bbf0-4589-a336-5939676dc9a1",
+		"_postman_id": "e07c9857-9da7-4490-a7c9-156339f6d046",
 		"name": "EshopOnMicroservices",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "26689563"
@@ -173,6 +173,23 @@
 					"response": []
 				},
 				{
+					"name": "Health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basket_url}}/health",
+							"host": [
+								"{{basket_url}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Delete Product",
 					"request": {
 						"method": "DELETE",
@@ -211,6 +228,152 @@
 							],
 							"path": [
 								"basket"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ordering",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Order\": {\r\n    \"CustomerId\": \"58c49479-ec65-4de2-86e7-033c546291aa\",\r\n    \"OrderName\": \"ORD_4\",\r\n    \"ShippingAddress\": {\r\n      \"FirstName\": \"Valentina\",\r\n      \"LastName\": \"Legros\",\r\n      \"EmailAddress\": \"valeg@xmail.com\",\r\n      \"AddressLine\": \"Wiegand Pass Suite 825\",\r\n      \"Country\": \"USA\",\r\n      \"State\": \"Oklahoma\",\r\n      \"ZipCode\": \"41248\"\r\n    },\r\n    \"BillingAddress\": {\r\n      \"FirstName\": \"Valentina\",\r\n      \"LastName\": \"Legros\",\r\n      \"EmailAddress\": \"valeg@xmail.com\",\r\n      \"AddressLine\": \"Wiegand Pass Suite 825\",\r\n      \"Country\": \"USA\",\r\n      \"State\": \"Oklahoma\",\r\n      \"ZipCode\": \"41248\"\r\n    },\r\n    \"Payment\": {\r\n      \"CardName\": \"CARD_1\",\r\n      \"CardNumber\": \"875-444-3739\",\r\n      \"Expiration\": \"12/29\",\r\n      \"Cvv\": \"455\",\r\n      \"PaymentMethod\": 1\r\n    },\r\n    \"Status\": 2,\r\n    \"OrderItems\": [\r\n      {\r\n        \"ProductId\": \"5334c996-8457-4cf0-815c-ed2b77c4ff61\",\r\n        \"Quantity\": 2,\r\n        \"Price\": 500\r\n      },\r\n      {\r\n        \"ProductId\": \"c67d6323-e8b1-4bdf-9a75-b0d0d2e7e914\",\r\n        \"Quantity\": 1,\r\n        \"Price\": 500\r\n      }\r\n    ]\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ordering_url}}/orders",
+							"host": [
+								"{{ordering_url}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Order\": {\r\n    \"Id\": \"66ed7930-3ade-4129-af19-41e11f764d6a\",\r\n    \"CustomerId\": \"58c49479-ec65-4de2-86e7-033c546291aa\",\r\n    \"OrderName\": \"ORD_4\",\r\n    \"ShippingAddress\": {\r\n      \"FirstName\": \"ValentinaUPD2\",\r\n      \"LastName\": \"Legros\",\r\n      \"EmailAddress\": \"valeg@xmail.com\",\r\n      \"AddressLine\": \"Wiegand Pass Suite 825\",\r\n      \"Country\": \"USA\",\r\n      \"State\": \"Oklahoma\",\r\n      \"ZipCode\": \"41248\"\r\n    },\r\n    \"BillingAddress\": {\r\n      \"FirstName\": \"Valentina\",\r\n      \"LastName\": \"Legros\",\r\n      \"EmailAddress\": \"valeg@xmail.com\",\r\n      \"AddressLine\": \"Wiegand Pass Suite 825\",\r\n      \"Country\": \"USA\",\r\n      \"State\": \"Oklahoma\",\r\n      \"ZipCode\": \"41248\"\r\n    },\r\n    \"Payment\": {\r\n      \"CardName\": \"CARD_1\",\r\n      \"CardNumber\": \"875-444-3739\",\r\n      \"Expiration\": \"12/29\",\r\n      \"Cvv\": \"455\",\r\n      \"PaymentMethod\": 1\r\n    },\r\n    \"Status\": 2,\r\n    \"OrderItems\": [\r\n      {\r\n        \"ProductId\": \"5334c996-8457-4cf0-815c-ed2b77c4ff61\",\r\n        \"Quantity\": 2,\r\n        \"Price\": 500\r\n      },\r\n      {\r\n        \"ProductId\": \"c67d6323-e8b1-4bdf-9a75-b0d0d2e7e914\",\r\n        \"Quantity\": 1,\r\n        \"Price\": 500\r\n      }\r\n    ]\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ordering_url}}/orders",
+							"host": [
+								"{{ordering_url}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ordering_url}}/orders",
+							"host": [
+								"{{ordering_url}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ordering_url}}/health",
+							"host": [
+								"{{ordering_url}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ordering_url}}/orders/ORD_4",
+							"host": [
+								"{{ordering_url}}"
+							],
+							"path": [
+								"orders",
+								"ORD_4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders By Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ordering_url}}/orders/customer/58c49479-ec65-4de2-86e7-033c546291aa",
+							"host": [
+								"{{ordering_url}}"
+							],
+							"path": [
+								"orders",
+								"customer",
+								"58c49479-ec65-4de2-86e7-033c546291aa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ordering_url}}/orders/66ed7930-3ade-4129-af19-41e11f764d6a",
+							"host": [
+								"{{ordering_url}}"
+							],
+							"path": [
+								"orders",
+								"66ed7930-3ade-4129-af19-41e11f764d6a"
 							]
 						}
 					},

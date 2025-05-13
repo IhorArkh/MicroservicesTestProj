@@ -5,6 +5,9 @@
   basketdb:
     image: postgres
 
+  orderdb:
+    image: mcr.microsoft.com/mssql/server
+
   distributedcache:
     image: redis
 
