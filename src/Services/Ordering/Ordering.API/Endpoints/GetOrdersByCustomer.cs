@@ -1,8 +1,8 @@
-﻿namespace Ordering.API.Endpoints;
+﻿using Ordering.Application.Orders.Queries.GetOrdersByCustomer;
+
+namespace Ordering.API.Endpoints;
 
 public record GetOrdersByCustomerResponse(IEnumerable<OrderDto> Orders);
-
-public record GetOrdersByCustomerQuery(Guid CustomerId) : IRequest<IEnumerable<OrderDto>>;
 
 public class GetOrdersByCustomer : ICarterModule
 {
