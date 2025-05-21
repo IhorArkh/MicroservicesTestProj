@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Ordering.Application.Orders.Queries.GetOrdersByName;
+﻿namespace Ordering.Application.Orders.Queries.GetOrdersByName;
 
 public record GetOrdersByNameQuery(string Name) : IQuery<GetOrdersByNameResult>;
 

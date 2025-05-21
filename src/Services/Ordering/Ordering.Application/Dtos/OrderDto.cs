@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Ordering.Domain.Enums;
+﻿using Ordering.Domain.Enums;
 
 namespace Ordering.Application.Dtos;
 
